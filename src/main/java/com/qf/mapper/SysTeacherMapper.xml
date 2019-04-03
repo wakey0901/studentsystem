@@ -21,13 +21,13 @@
     delete from sys_teacher
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qf.oa.entity.SysTeacher">
+  <insert id="insert" parameterType="com.qf.entity.SysTeacher">
     insert into sys_teacher (id, name, age, 
       sex, class_id)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
       #{sex,jdbcType=CHAR}, #{classId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.qf.oa.entity.SysTeacher">
+  <insert id="insertSelective" parameterType="com.qf.entity.SysTeacher">
     insert into sys_teacher
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qf.oa.entity.SysTeacher">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.SysTeacher">
     update sys_teacher
     <set>
       <if test="name != null">
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qf.oa.entity.SysTeacher">
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.SysTeacher">
     update sys_teacher
     set name = #{name,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},

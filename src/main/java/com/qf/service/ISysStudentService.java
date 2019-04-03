@@ -1,12 +1,10 @@
-package com.qf.mapper;
+package com.qf.service;
 
-import com.qf.dao.IBaseDao;
 import com.qf.entity.SysStudent;
 
 import java.util.List;
 
-public interface SysStudentMapper extends IBaseDao<SysStudent>{
-
+public interface ISysStudentService extends IBaseService<SysStudent> {
     List<SysStudent> getAllStudentInfo();
 
     SysStudent getStudentInfo(int id);

@@ -18,11 +18,11 @@
     delete from sys_class
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qf.oa.entity.SysClass">
+  <insert id="insert" parameterType="com.qf.entity.SysClass">
     insert into sys_class (id, name)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.qf.oa.entity.SysClass">
+  <insert id="insertSelective" parameterType="com.qf.entity.SysClass">
     insert into sys_class
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -41,7 +41,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qf.oa.entity.SysClass">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.SysClass">
     update sys_class
     <set>
       <if test="name != null">
@@ -50,7 +50,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qf.oa.entity.SysClass">
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.SysClass">
     update sys_class
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

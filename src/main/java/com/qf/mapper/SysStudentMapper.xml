@@ -21,13 +21,13 @@
     delete from sys_student
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qf.oa.entity.SysStudent">
+  <insert id="insert" parameterType="com.qf.entity.SysStudent">
     insert into sys_student (id, name, age, 
       class_id, sex)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
       #{classId,jdbcType=INTEGER}, #{sex,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.qf.oa.entity.SysStudent">
+  <insert id="insertSelective" parameterType="com.qf.entity.SysStudent">
     insert into sys_student
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qf.oa.entity.SysStudent">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.SysStudent">
     update sys_student
     <set>
       <if test="name != null">
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qf.oa.entity.SysStudent">
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.SysStudent">
     update sys_student
     set name = #{name,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
@@ -90,4 +90,19 @@
       sex = #{sex,jdbcType=CHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--查询所有的学生信息-->
+  <select id="getAllStudentInfo" resultMap="BaseResultMap">
+    select * FROM sys_student
+  </select>
+
+  <!--查询学生信息-->
+  <select id="getStudentInfo" parameterType="int" resultMap="BaseResultMap">
+    SELECT * from sys_student where id = #{id}
+  </select>
+
+  <!--删除学生信息-->
+  <delete id="deleteStudentById" parameterType="int">
+    DELETE FROM sys_student where id = #{id}
+  </delete>
 </mapper>
